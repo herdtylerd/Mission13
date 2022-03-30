@@ -1,0 +1,64 @@
+﻿@{
+}
+
+@model Bowler
+
+<h4>Bowler Information</h4>
+
+<form method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <input type="hidden" asp-for="BowlerID" value="@ViewBag.Id"/>
+
+    <div class="form-group">
+        <label asp-for="BowlerFirstName">First Name</label>
+        <input asp-for="BowlerFirstName" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="BowlerMiddleInit">Middle Initial</label>
+        <input asp-for="BowlerMiddleInit" class="form-control"/>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="BowlerLastName">Last Name</label>
+        <input asp-for="BowlerLastName" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="BowlerAddress">Address</label>
+        <input asp-for="BowlerAddress" class="form-control"/>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="BowlerCity">City</label>
+        <input asp-for="BowlerCity" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="BowlerState">State</label>
+        <input asp-for="BowlerState" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="BowlerZip">Zip</label>
+        <input asp-for="BowlerZip" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="BowlerPhoneNumber">Phone Number</label>
+        <input asp-for="BowlerPhoneNumber" class="form-control" />
+    </div>
+
+    <label>Team</label>
+    <select asp-for="TeamID" class="custom-select">
+        <option value=""></option>
+        @foreach (var t in ViewBag.Teams)
+            {
+                <option value="@t.TeamID">@t.TeamName</option>
+            }
+    </select><br /><br />
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a class="btn btn-warning" asp-controller="Home" asp-action="Index">Cancel</a>
+</form>
